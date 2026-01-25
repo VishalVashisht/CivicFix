@@ -1,3 +1,7 @@
+############################################
+# Root-level ignores
+############################################
+
 # Logs
 logs
 *.log
@@ -7,18 +11,82 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-client/node_modules
-client/dist
-client/dist-ssr
-*.local
-
-# Editor directories and files
+# OS / Editor
+.DS_Store
+.idea/
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.npm
+.node_repl_history
+
+############################################
+# Server (NestJS)
+############################################
+
+server/node_modules/
+server/dist/
+server/coverage/
+
+# NestJS build info
+server/*.tsbuildinfo
+
+############################################
+# Client (Vite)
+############################################
+
+client/node_modules/
+client/dist/
+client/dist-ssr/
+client/.vite/
+
+############################################
+# TypeScript
+############################################
+
+*.tsbuildinfo
+
+############################################
+# Yarn / PNPM
+############################################
+
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn-integrity
+.pnp.*
+pnpm-lock.yaml
+
+############################################
+# Build artifacts
+############################################
+
+build/
+out/
+
+############################################
+# Optional / misc
+############################################
+
+.tmp/
+temp/
