@@ -1,11 +1,18 @@
-import express from 'express'
+import app from './app'
+import { config } from './config/env'
 
-const app = express();
-
-app.get('/', (_req, res) => {
-  res.send('Hello from Node + TS');
+const server = app.listen(config.port, () => {
+  console.log(`🚀 Server running at http://localhost:${config.port} (${config.nodeEnv})`)
 })
 
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
-})
+const shutdown = () => {
+  console.log('Shutting down server...')
+
+  server.close(() => {
+    console.log('Server closed')
+    process.exit(0)
+  })
+}
+
+process.on('SIGINT', shutdown)
+process.on('SIGTERM', shutdown)
