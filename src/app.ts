@@ -2,7 +2,7 @@ import express, { Application, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
-
+import userRoutes from './routes'
 const app: Application = express()
 
 app.use(helmet())
@@ -11,6 +11,9 @@ app.use(morgan('dev'))
 app.use(express.json({ limit: '10kb' }))
 app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 
+
+// 2. Use the routes. All routes in user.routes will be prefixed with /api/users
+app.use('/api/users', userRoutes);
 
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'OK' })

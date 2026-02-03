@@ -1,0 +1,9 @@
+{
+  "db": {
+    "user": "postgres",
+    "host": "localhost",
+    "database": "cificfix",
+    "password": "civicfix",
+    "port": 5432
+  }
+}
