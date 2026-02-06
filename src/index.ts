@@ -2,7 +2,7 @@ import app from './app'
 import { config } from './config/env'
 
 const server = app.listen(config.port, () => {
-  console.log(`Server running at http://localhost:${config.port} (${config.nodeEnv})`)
+  console.log(`Server running at port : ${config.port} (${config.nodeEnv})`)
 })
 
 const shutdown = () => {
